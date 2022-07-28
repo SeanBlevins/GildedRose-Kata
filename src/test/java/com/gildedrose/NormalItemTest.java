@@ -39,7 +39,7 @@ public class NormalItemTest {
         Item[] items = new Item[] { new Item(null, 10, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(10, app.items[0].sellIn);
-        assertEquals(10, app.items[0].quality);
+        assertEquals(9, app.items[0].sellIn);
+        assertEquals(9, app.items[0].quality);
     }
 }
