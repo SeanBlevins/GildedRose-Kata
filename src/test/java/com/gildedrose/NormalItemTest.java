@@ -4,6 +4,7 @@ import com.gildedrose.model.Item;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NormalItemTest {
 
@@ -41,5 +42,13 @@ public class NormalItemTest {
         app.updateQuality();
         assertEquals(9, app.items[0].sellIn);
         assertEquals(9, app.items[0].quality);
+    }
+
+    @Test
+    void randomItemTest_categorizedItem() {
+        Item[] items = new Item[] { new Item("random item", 1, 1) };
+        GildedRose app = new GildedRose(items);
+        //If the item didnt fit one of the defined class type we create an anonymous class of CategorizedItem
+        assertTrue(app.items[0].getClass().isAnonymousClass());
     }
 }

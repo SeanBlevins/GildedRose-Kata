@@ -1,9 +1,11 @@
 package com.gildedrose;
 
+import com.gildedrose.model.BackstagePasses;
 import com.gildedrose.model.Item;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BackstagePassesTest {
 
@@ -50,6 +52,13 @@ class BackstagePassesTest {
         app.updateQuality();
         assertEquals(2, app.items[0].sellIn);
         assertEquals(50, app.items[0].quality);
+    }
+
+    @Test
+    void backstagePassesTest_categorizedItem() {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 1, 1) };
+        GildedRose app = new GildedRose(items);
+        assertTrue(app.items[0] instanceof BackstagePasses);
     }
 
 }
