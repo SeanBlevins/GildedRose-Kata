@@ -1,12 +1,16 @@
 package com.gildedrose;
 
 import com.gildedrose.model.Item;
+import org.jetbrains.annotations.NotNull;
+
+import static com.gildedrose.Util.fixInitialInventory;
 
 class GildedRose {
     Item[] items;
 
-    public GildedRose(Item[] items) {
+    public GildedRose(@NotNull Item[] items) {
         this.items = items;
+        fixInitialInventory(items);
     }
 
     public void updateQuality() {
