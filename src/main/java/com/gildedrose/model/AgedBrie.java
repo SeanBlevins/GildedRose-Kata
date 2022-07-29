@@ -11,4 +11,9 @@ public class AgedBrie extends CategorizedItem {
         super(item);
     }
 
+    @Override
+    public void updateQuality() {
+        incrementQuality();
+        if (sellIn <= SELL_BY_DATE) incrementQuality();
+    }
 }

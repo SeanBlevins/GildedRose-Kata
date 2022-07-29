@@ -10,4 +10,15 @@ public class ConjuredItem extends CategorizedItem {
     public ConjuredItem(Item item) {
         super(item);
     }
+
+    @Override
+    public void updateQuality() {
+        doubleDecrement();
+        if (sellIn <= SELL_BY_DATE) doubleDecrement();
+    }
+
+   private void doubleDecrement() {
+       decrementQuality();
+       decrementQuality();
+   }
 }

@@ -9,8 +9,21 @@ import java.util.function.Predicate;
 public class BackstagePasses extends CategorizedItem {
     public static final String TYPE_NAME = "Backstage passes";
     public static final Predicate<String> typeCheck = s -> s.startsWith(TYPE_NAME);
+    private final int FIRST_THRESHOLD = 10;
+    private final int SECOND_THRESHOLD = 5;
 
     public BackstagePasses(Item item) {
         super(item);
+    }
+
+    @Override
+    public void updateQuality() {
+        if (sellIn <= SELL_BY_DATE) {
+            quality = MIN_QUALITY;
+        } else {
+            incrementQuality();
+            if (sellIn <= FIRST_THRESHOLD) incrementQuality();
+            if (sellIn <= SECOND_THRESHOLD) incrementQuality();
+        }
     }
 }

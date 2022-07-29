@@ -6,10 +6,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class Util {
+import static com.gildedrose.model.CategorizedItem.MAX_QUALITY;
+import static com.gildedrose.model.CategorizedItem.MIN_QUALITY;
 
-    static final int MAX_QUALITY = 50;
-    static final int MIN_QUALITY = 0;
+public class Util {
     static final String UNKNOWN_ITEM = "Unknown item";
 
     public static CategorizedItem[] categorizeItems(Item[] items) {

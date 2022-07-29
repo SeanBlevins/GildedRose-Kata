@@ -12,4 +12,10 @@ public class Sulfuras extends CategorizedItem {
     public Sulfuras(Item item) {
         super(item.name, item.sellIn, CONSTANT_QUALITY);
     }
+
+    @Override
+    public void updateQuality() {}
+
+    @Override
+    public void updateSellIn() {}
 }
