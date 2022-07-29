@@ -2,6 +2,7 @@ package com.gildedrose.model;
 
 import java.util.function.Predicate;
 
+//Conjured items degrade twice as fast as normal items
 public class ConjuredItem extends CategorizedItem {
     public static final String TYPE_NAME = "Conjured";
     public static final Predicate<String> typeCheck = s -> s.startsWith(TYPE_NAME);
