@@ -30,8 +30,6 @@ public class LegacyGildedRoseTest {
 
         for (int i = 0; i < days; i++) {
             for (int idx = 0; idx < items.length; idx++) {
-                System.out.println(itemsLegacy[idx]);
-                System.out.println(app.items[idx]);
                 //Sulfuras and Conjured items did not update properly in the initial solution
                 if (!(app.items[idx] instanceof Sulfuras) && !(app.items[idx] instanceof ConjuredItem)) {
                     assertEquals(itemsLegacy[idx].name, app.items[idx].name);
@@ -39,7 +37,6 @@ public class LegacyGildedRoseTest {
                     assertEquals(itemsLegacy[idx].sellIn, app.items[idx].sellIn);
                 }
             }
-            System.out.println();
             app.updateQuality();
             legacyUpdateQuality(itemsLegacy);
         }

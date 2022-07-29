@@ -12,7 +12,11 @@ import static com.gildedrose.model.CategorizedItem.MIN_QUALITY;
 public class Util {
     static final String UNKNOWN_ITEM = "Unknown item";
 
-    public static CategorizedItem[] categorizeItems(Item[] items) {
+    public static boolean isNullOrEmpty(Item[] items) {
+        return items == null || items.length == 0;
+    }
+
+    public static CategorizedItem[] categorizeItems(@NotNull Item[] items) {
         return Arrays.stream(items).map(item -> {
             if (AgedBrie.typeCheck.test(item.name)) return new AgedBrie(item);
             if (Sulfuras.typeCheck.test(item.name)) return new Sulfuras(item);

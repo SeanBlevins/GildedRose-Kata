@@ -15,10 +15,7 @@ class GildedRoseTest {
 
     @Test
     void gildedRoseEmptyItemArray() {
-        Item[] items = new Item[] {};
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals(0, app.items.length);
+        assertThrows(IllegalArgumentException.class, () -> new GildedRose(new Item[] {}));
     }
     @Test
     void gildedRoseSingleItem() {

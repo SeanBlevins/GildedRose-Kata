@@ -4,13 +4,13 @@ import com.gildedrose.model.CategorizedItem;
 import com.gildedrose.model.Item;
 import org.jetbrains.annotations.NotNull;
 
-import static com.gildedrose.Util.categorizeItems;
-import static com.gildedrose.Util.fixInitialInventory;
+import static com.gildedrose.Util.*;
 
 class GildedRose {
-    final CategorizedItem[] items;
+    CategorizedItem[] items;
 
     public GildedRose(@NotNull Item[] items) {
+        if (isNullOrEmpty(items)) throw new IllegalArgumentException("Inventory is empty!");
         fixInitialInventory(items);
         this.items = categorizeItems(items);
     }
